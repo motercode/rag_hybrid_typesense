@@ -1,0 +1,305 @@
+(base) PS D:\WORKSPACE\rag\typesense hibrid\mis_actas> ls   
+
+
+    Directorio: D:\WORKSPACE\rag\typesense hibrid\mis_actas
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        24/06/2025     18:14          42900 030728 Acta.Junta.Constit.28-07-03.pdf
+-a----        24/06/2025     18:15          67094 030818 Acta.Junta.Extr.18-08-03.pdf
+-a----        24/06/2025     18:15          50131 031015 Acta.Junta.Extr.15-10-03.pdf
+-a----        24/06/2025     18:15          43185 031124 Acta.Junta.Extr.24-11-03.pdf
+-a----        24/06/2025     18:15          43434 040421 Acta.Junta.Extr.21-04-04.pdf
+-a----        24/06/2025     18:15          54317 040628 Acta.Junta Ord.28-6-04.pdf
+-a----        24/06/2025     18:15          56666 050620 Acta.Junta.Ord.20-06-05.pdf
+-a----        24/06/2025     18:16          55960 060320 Acta.Junta.Extr.20-03-06.pdf
+-a----        06/09/2024     13:31         604043 120402 Acta Junta Extr. 2-04-12.pdf
+-a----        12/09/2024     18:41         838946 120611 Precios conserjeria.pdf
+-a----        06/09/2024     13:40        1522275 120711 Acta Junta Extr. 11-07-12.pdf
+-a----        06/09/2024     13:53         524607 131128 Acta Junta Gobierno 28-11-13.pdf
+-a----        06/09/2024     14:01        1558696 140226 Acta Junta Extr. 26-02-14.pdf
+
+
+
+
+las distintas respuestas
+
+
+
+(D:\WORKSPACE\rag\typesense hibrid\envs) PS D:\WORKSPACE\rag\typesense hibrid> python .\consulta_hibrida.py
+Cargando motor de embeddings local...
+Loading weights: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 199/199 [00:00<00:00, 8796.98it/s]
+BertModel LOAD REPORT from: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+Key                     | Status     |  |
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  |
+
+Notes:
+- UNEXPECTED    :can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+
+[1] Pidiendo a Ollama 5 variantes para: '¿A qué empresa se contrató finalmente para sustituir el servicio de conserjería y por qué?'
+  - Variante 1: conserjería servicio
+  - Variante 2: ¿A qué empresa se contrató finalmente para sustituir el servicio de conserjería y por qué?
+  - Variante 3: contrato final
+  - Variante 4: sustituir empresa
+  - Variante 5: contrata empresa
+  - Variante 6: empresa servicio
+[2] Realizando Búsqueda Híbrida simultánea de 6 variantes...
+[3] Enviando contexto unificado (21 fragmentos) a Llama 3 para el resumen final...
+
+--- RESPUESTA OFICIAL ---
+La pregunta es: ¿A qué empresa se contrató finalmente para sustituir el servicio de conserjería y por qué?
+
+La respuesta está en el contexto proporcionado. Según el Acta de la Junta General de fecha 2-04-12, se contrató con la empresa Servinet Siglo XXI S.L. para sustituir el servicio de conserjería. La razón es que esta empresa ofreció un precio más económico que otras empresas que se ofrecieron para el servicio, y además es la empresa de un vecino de la Comunidad, lo que puede ser beneficioso para la Comunidad.
+
+Fuentes consultadas:
+- [Fuente: 120402 Acta Junta Extr. 2-04-12.pdf - Año 1204]
+- [Fuente: 140226 Acta Junta Extr. 26-02-14.pdf - Año 1402]
+-------------------------
+(D:\WORKSPACE\rag\typesense hibrid\envs) PS D:\WORKSPACE\rag\typesense hibrid> python .\consulta_hibrida.py
+Cargando motor de embeddings local...
+Loading weights: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 199/199 [00:00<00:00, 9243.57it/s]
+BertModel LOAD REPORT from: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+Key                     | Status     |  |
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  |
+
+Notes:
+- UNEXPECTED    :can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+
+[1] Pidiendo a Ollama 5 variantes para: '¿A qué empresa se contrató finalmente para sustituir el servicio de conserjería y por qué?'
+  - Variante 1: sustituir empresa
+  - Variante 2: contrata empresa
+  - Variante 3: ¿A qué empresa se contrató finalmente para sustituir el servicio de conserjería y por qué?
+  - Variante 4: contrato final
+  - Variante 5: empresa servicio
+  - Variante 6: conserjería servicio
+[2] Realizando Búsqueda Híbrida simultánea de 6 variantes...
+[3] Enviando contexto unificado (21 fragmentos) a Llama 3 para el resumen final...
+
+--- RESPUESTA OFICIAL ---
+La pregunta del vecino es: ¿A qué empresa se contrató finalmente para sustituir el servicio de conserjería y por qué?
+
+La respuesta es: No se especifica en el contexto la empresa a la que se contrató finalmente para sustituir el servicio de conserjería. Sin embargo, se menciona que se delegó la decisión de contratar un servicio de conserjería a la Junta Rectora, y que se aprobó la contratación de la empresa Grupo Yago, que ofrece un servicio integral de conserjería, limpieza, jardinería y piscina, y que es el precio más económico de todas las ofertas que se disponen.
+
+Fuentes consultadas:
+
+* [Fuente: 050620 Acta.Junta.Ord.20-06-05.pdf - Año 506]
+* [Fuente: 140226 Acta Junta Extr. 26-02-14.pdf - Año 1402]
+* [Fuente: 120402 Acta Junta Extr. 2-04-12.pdf - Año 1204]
+* [Fuente: 031124 Acta.Junta.Extr.24-11-03.pdf - Año 311]
+* [Fuente: 040628 Acta.Junta Ord.28-6-04.pdf - Año 406]
+* [Fuente: 060320 Acta.Junta.Extr.20-03-06.pdf - Año 603]
+* [Fuente: 031124 Acta.Junta.Extr.24-11-03.pdf - Año 311]
+* [Fuente: 140226 Acta Junta Extr. 26-02-14.pdf - Año 1402]
+-------------------------
+(D:\WORKSPACE\rag\typesense hibrid\envs) PS D:\WORKSPACE\rag\typesense hibrid> python .\consulta_hibrida.py
+Cargando motor de embeddings local...
+Loading weights: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 199/199 [00:00<00:00, 8539.22it/s]
+BertModel LOAD REPORT from: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+Key                     | Status     |  |
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  |
+
+Notes:
+- UNEXPECTED    :can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+
+[1] Pidiendo a Ollama 5 variantes para: '¿A qué empresa se contrató finalmente para sustituir el servicio de conserjería y por qué?'
+  - Variante 1: conserjería servicio
+  - Variante 2: ¿A qué empresa se contrató finalmente para sustituir el servicio de conserjería y por qué?
+  - Variante 3: empresa conserjería
+  - Variante 4: sustituir empresa
+  - Variante 5: contrata empresa
+  - Variante 6: contrato final
+[2] Realizando Búsqueda Híbrida simultánea de 6 variantes...
+[3] Enviando contexto unificado (21 fragmentos) a Llama 3 para el resumen final...
+
+--- RESPUESTA OFICIAL ---
+La pregunta es: ¿A qué empresa se contrató finalmente para sustituir el servicio de conserjería y por qué?
+
+La respuesta es: No se especifica en el contexto la empresa con la que se contrató finalmente para sustituir el servicio de conserjería. Sin embargo, se menciona que el administrador ha solicitado presupuestos a varias empresas, incluyendo Centroempleo y Servinet Siglo XXI S.L., y que se ha decidido contratar con la empresa Servinet Siglo XXI S.L. por ser la que ya se conoce y lleva en las otras fases el mismo servicio con resultado satisfactorio.
+
+Fuentes consultadas:
+[Fuente: 120402 Acta Junta Extr. 2-04-12.pdf - Año 1204]
+[Fuente: 140226 Acta Junta Extr. 26-02-14.pdf - Año 1402]
+[Fuente: 030818 Acta.Junta.Extr.18-08-03.pdf - Año 308]
+[Fuente: 050620 Acta.Junta.Ord.20-06-05.pdf - Año 506]
+[Fuente: 031124 Acta.Junta.Extr.24-11-03.pdf - Año 311]
+[Fuente: 131128 Acta Junta Gobierno 28-11-13.pdf - Año 1311]
+[Fuente: 060320 Acta.Junta.Extr.20-03-06.pdf - Año 603]
+[Fuente: 040628 Acta.Junta.Ord.28-6-04.pdf - Año 406]
+-------------------------
+(D:\WORKSPACE\rag\typesense hibrid\envs) PS D:\WORKSPACE\rag\typesense hibrid> python .\consulta_hibrida.py
+Cargando motor de embeddings local...
+Loading weights: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 199/199 [00:00<00:00, 8882.64it/s]
+BertModel LOAD REPORT from: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+Key                     | Status     |  |
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  |
+
+Notes:
+- UNEXPECTED    :can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+
+[1] Pidiendo a Ollama 5 variantes para: '¿A qué empresa se contrató finalmente para sustituir el servicio de conserjería y por qué?'
+  - Variante 1: sustituir empresa
+  - Variante 2: contrato final
+  - Variante 3: ¿A qué empresa se contrató finalmente para sustituir el servicio de conserjería y por qué?
+  - Variante 4: empresa servicio
+  - Variante 5: contrata empresa
+  - Variante 6: conserjería servicio
+[2] Realizando Búsqueda Híbrida simultánea de 6 variantes...
+[3] Enviando contexto unificado (21 fragmentos) a Llama 3 para el resumen final...
+
+--- RESPUESTA OFICIAL ---
+La pregunta del vecino es: ¿A qué empresa se contrató finalmente para sustituir el servicio de conserjería y por qué?
+
+La respuesta es: No se especifica en el contexto la empresa a la que se contrató para sustituir el servicio de conserjería. Sin embargo, se menciona que se delegó en la Junta Rectora la decisión de contratar un servicio de conserjería y que se aprobó la contratación de la empresa Servinet Siglo XXI S.L. para el servicio de limpieza.
+
+Fuentes consultadas:
+
+* [Fuente: 050620 Acta.Junta.Ord.20-06-05.pdf - Año 506]
+* [Fuente: 140226 Acta Junta Extr. 26-02-14.pdf - Año 1402]
+* [Fuente: 120402 Acta Junta Extr. 2-04-12.pdf - Año 1204]
+* [Fuente: 030818 Acta.Junta.Extr.18-08-03.pdf - Año 308]
+* [Fuente: 031124 Acta.Junta.Extr.24-11-03.pdf - Año 311]
+* [Fuente: 030728 Acta.Junta.Constit.28-07-03.pdf - Año 307]
+* [Fuente: 140226 Acta Junta Extr. 26-02-14.pdf - Año 1402]
+-------------------------
+
+AQUI HE MATADO Y VUELTO A ARRANCAR EL DOCKER 
+
+
+
+(D:\WORKSPACE\rag\typesense hibrid\envs) PS D:\WORKSPACE\rag\typesense hibrid> python .\consulta_hibrida.py
+Cargando motor de embeddings local...
+Loading weights: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 199/199 [00:00<00:00, 8468.10it/s]
+BertModel LOAD REPORT from: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+Key                     | Status     |  |
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  |
+
+Notes:
+- UNEXPECTED    :can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+
+[1] Pidiendo a Ollama 5 variantes para: '¿A qué empresa se contrató finalmente para sustituir el servicio de conserjería y por qué?'
+  - Variante 1: conserjería servicio
+  - Variante 2: empresa conserjería
+  - Variante 3: ¿A qué empresa se contrató finalmente para sustituir el servicio de conserjería y por qué?
+  - Variante 4: sustituir empresa
+  - Variante 5: contrato final
+  - Variante 6: contrata empresa
+[2] Realizando Búsqueda Híbrida simultánea de 6 variantes...
+[3] Enviando contexto unificado (21 fragmentos) a Llama 3 para el resumen final...
+
+--- RESPUESTA OFICIAL ---
+La pregunta del vecino es: ¿A qué empresa se contrató finalmente para sustituir el servicio de conserjería y por qué?
+
+La respuesta es que no se especifica en las actas la empresa con la que se contrató finalmente para sustituir el servicio de conserjería. Sin embargo, se menciona que se contrató con la empresa Servinet Siglo XXI S.L. en el año 1204, y que se subrogó a D. Aurelio Cañas en las mismas condiciones laborales y salariales que tenía. También se menciona que se estudió la posibilidad de cambiar el servicio de conserjería para reducir costes y aprovechar más al personal que desarrolla esta labor.
+
+Fuentes consultadas:
+
+* [Fuente: 120402 Acta Junta Extr. 2-04-12.pdf - Año 1204]
+* [Fuente: 140226 Acta Junta Extr. 26-02-14.pdf - Año 1402]
+* [Fuente: 031124 Acta.Junta.Extr.24-11-03.pdf - Año 311]
+* [Fuente: 060320 Acta.Junta.Extr.20-03-06.pdf - Año 603]
+* [Fuente: 040628 Acta.Junta Ord.28-6-04.pdf - Año 406]
+* [Fuente: 030728 Acta.Junta.Constit.28-07-03.pdf - Año 307]
+* [Fuente: 131128 Acta Junta Gobierno 28-11-13.pdf - Año 1311]
+* [Fuente: 050620 Acta.Junta.Ord.20-06-05.pdf - Año 506]
+* [Fuente: 030818 Acta.Junta.Extr.18-08-03.pdf - Año 308]
+* [Fuente: 031124 Acta.Junta.Extr.24-11-03.pdf - Año 311]
+* [Fuente: 060320 Acta.Junta.Extr.20-03-06.pdf - Año 603]
+* [Fuente: 140226 Acta Junta Extr. 26-02-14.pdf - Año 1402]
+* [Fuente: 030818 Acta.Junta.Extr.18-08-03.pdf - Año 308]
+* [Fuente: 060320 Acta.Junta.Extr.20-03-06.pdf - Año 603]
+* [Fuente: 031124 Acta.Junta.Extr.24-11-03.pdf - Año 311]
+* [Fuente: 140226 Acta Junta Extr. 26-02-14.pdf - Año 1402]
+* [Fuente: 030728 Acta.Junta.Constit.28-07-03.pdf - Año 307]
+* [Fuente: 131128 Acta Junta Gobierno 28-11-13.pdf - Año 1311]
+* [Fuente: 050620 Acta.Junta.Ord.20-06-05.pdf - Año 506]
+* [Fuente: 030818 Acta.Junta.Extr.18-08-03.pdf - Año 308]
+* [Fuente: 031124 Acta.Junta.Extr.24-11-03.pdf - Año 311]
+* [Fuente: 060320 Acta.Junta.Extr.20-03-06.pdf - Año 603]
+* [Fuente: 140226 Acta Junta Extr. 26-02-14.pdf - Año 1402]
+* [Fuente: 030728 Acta.Junta.Constit.28-07-03.pdf - Año 307]
+* [Fuente: 131128 Acta Junta Gobierno 28-11-13.pdf - Año 1311]
+* [Fuente: 050620 Acta.Junta.Ord.20-06-05.pdf - Año 506]
+* [Fuente: 030818 Acta.Junta.Extr.18-08-03.pdf - Año 308]
+* [Fuente: 031124 Acta.Junta.Extr.24-11-03.pdf - Año 311]
+* [Fuente: 060320 Acta.Junta.Extr.20-03-06.pdf - Año 603]
+* [Fuente: 140226 Acta Junta Extr. 26-02-14.pdf - Año 1402]
+* [Fuente: 030728 Acta.Junta.Constit.28-07-03.pdf - Año 307]
+* [Fuente: 131128 Acta Junta Gobierno 28-11-13.pdf - Año 1311]
+* [Fuente: 050620 Acta.Junta.Ord.20-06-05.pdf - Año 506]
+* [Fuente: 030818 Acta.Junta.Extr.18-08-03.pdf - Año 308]
+* [Fuente: 031124 Acta.Junta.Extr.24-11-03.pdf - Año 311]
+* [Fuente: 060320 Acta.Junta.Extr.20-03-06.pdf - Año 603]
+* [Fuente: 140226 Acta Junta Extr. 26-02-14Traceback (most recent call last):
+  File "D:\WORKSPACE\rag\typesense hibrid\consulta_hibrida.py", line 129, in <module>
+    generar_respuesta_final(pregunta_usuario, fragmentos)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WORKSPACE\rag\typesense hibrid\consulta_hibrida.py", line 115, in generar_respuesta_final
+    for linea in respuesta_stream.iter_lines():
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\crumb\AppData\Roaming\Python\Python314\site-packages\requests\models.py", line 869, in iter_lines
+    for chunk in self.iter_content(
+                 ~~~~~~~~~~~~~~~~~^
+        chunk_size=chunk_size, decode_unicode=decode_unicode
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "C:\Users\crumb\AppData\Roaming\Python\Python314\site-packages\requests\models.py", line 820, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "C:\Users\crumb\AppData\Roaming\Python\Python314\site-packages\urllib3\response.py", line 1250, in stream
+    yield from self.read_chunked(amt, decode_content=decode_content)
+  File "C:\Users\crumb\AppData\Roaming\Python\Python314\site-packages\urllib3\response.py", line 1418, in read_chunked
+    self._update_chunk_length()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\crumb\AppData\Roaming\Python\Python314\site-packages\urllib3\response.py", line 1333, in _update_chunk_length
+    line = self._fp.fp.readline()  # type: ignore[union-attr]
+  File "C:\Python314\Lib\socket.py", line 725, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+KeyboardInterrupt
+(D:\WORKSPACE\rag\typesense hibrid\envs) PS D:\WORKSPACE\rag\typesense hibrid> 
+
+HE TENIDO QUE CORTARLO CON CRL + C POR QUE NO PARABA
+
+AHORA HE REARRANCADO TANTO EL DOCKER COMO EL OLLAMA
+
+
+(D:\WORKSPACE\rag\typesense hibrid\envs) PS D:\WORKSPACE\rag\typesense hibrid> python .\consulta_hibrida.py
+Cargando motor de embeddings local...
+Loading weights: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 199/199 [00:00<00:00, 8669.16it/s]
+BertModel LOAD REPORT from: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+Key                     | Status     |  |
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  |
+
+Notes:
+- UNEXPECTED    :can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+
+[1] Pidiendo a Ollama 5 variantes para: '¿A qué empresa se contrató finalmente para sustituir el servicio de conserjería y por qué?'
+  - Variante 1: ¿A qué empresa se contrató finalmente para sustituir el servicio de conserjería y por qué?
+  - Variante 2: contrata empresa
+  - Variante 3: contrato final
+  - Variante 4: empresa conserjería
+  - Variante 5: conserjería servicio
+  - Variante 6: sustituir empresa
+[2] Realizando Búsqueda Híbrida simultánea de 6 variantes...
+[3] Enviando contexto unificado (21 fragmentos) a Llama 3 para el resumen final...
+
+--- RESPUESTA OFICIAL ---
+La pregunta es: ¿A qué empresa se contrató finalmente para sustituir el servicio de conserjería y por qué?
+
+La respuesta es que no hay información al respecto en las actas proporcionadas. No se menciona en absoluto la contratación de una empresa para sustituir el servicio de conserjería. Sin embargo, se menciona que el Administrador ha solicitado presupuestos para conserjería y otros servicios de la Comunidad, y que se ha decidido contratar con la empresa Servinet Siglo XXI SL, por ser la que ya se conoce y lleva en las otras fases el mismo servicio con resultado satisfactorio. Esta empresa subrogará a D. Aurelio Cañas en las mismas condiciones laborales y salariales que tiene.
+
+Fuentes consultadas:
+
+* [Fuente: 030818 Acta.Junta.Extr.18-08-03.pdf - Año 308]
+* [Fuente: 120402 Acta Junta Extr. 2-04-12.pdf - Año 1204]
+* [Fuente: 140226 Acta Junta Extr. 26-02-14.pdf - Año 1402]
+* [Fuente: 131128 Acta Junta Gobierno 28-11-13.pdf - Año 1311]
+-------------------------
+(D:\WORKSPACE\rag\typesense hibrid\envs) PS D:\WORKSPACE\rag\typesense hibrid> 

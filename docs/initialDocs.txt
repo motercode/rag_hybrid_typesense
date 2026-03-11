@@ -1,0 +1,4 @@
+ollama create ActasRAG -f Modelfile
+https://typesense.org/docs/guide/semantic-search.html#hybrid-search
+
+

@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  typesense:
+    image: typesense/typesense:26.0
+    container_name: typesense_actas
+    ports:
+      - "8108:8108"
+    volumes:
+      # Guarda los datos en una carpeta local llamada 'typesense_data'
+      - ./typesense_data:/data
+    command: '--data-dir /data --api-key=clave_secreta_actas --enable-cors'
+    restart: unless-stopped
+
+  ingesta_python:
+    build: .
+    container_name: python_ingesta_actas
+    depends_on:
+      - typesense
+    environment:
+      # Le pasamos el host de Typesense como variable de entorno
+      - TYPESENSE_HOST=typesense
+    volumes:
+      # AQUÍ ESTÁ LA MAGIA:
+      # Mapea la carpeta "mis_actas" de tu PC a la carpeta "/app/actas" dentro del contenedor
+      - ./mis_actas:/app/actas
